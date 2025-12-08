@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Trastboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}?v=7"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page-header">
+        <div class="page-header__left">
+          <button
+            class="header-icon-button"
+            id="screenshotButton"
+            title="Сделать скрин Trastboard"
+          >
+            ●
+          </button>
+
+          <div class="page-header__titles">
+            <h1 class="page-title">Trastboard</h1>
+
+            <div class="page-header__meta">
+              <div class="header-rates header-rates--under-title">
+                <div class="header-rate">
+                  <span class="header-rate-label">USD</span>
+                  <span class="header-rate-value">{{ usd_rate or "—" }}</span>
+                </div>
+                <div class="header-rate">
+                  <span class="header-rate-label">BRENT</span>
+                  <span class="header-rate-value">
+                    {{ brent_price or "—" }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="header-update">
+                Дата обновления:
+                <span id="activeDateLabel">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-header__right">
+          <div class="archive-control">
+            <button
+              type="button"
+              class="archive-button"
+              id="archiveButton"
+              title="Открыть архив дат"
+            >
+              Архив
+              <span class="archive-button__chevron">▾</span>
+            </button>
+            <div class="archive-menu" id="archiveMenu" hidden></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-main">
+        <section class="blocks-section">
+          <div id="blocksContainer" class="blocks-grid"></div>
+          <div id="errorContainer" class="error-banner" hidden></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}?v=7"></script>
+  </body>
+</html>

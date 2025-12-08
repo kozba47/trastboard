@@ -1,0 +1,17 @@
+# Виртуальные окружения
+venv/
+env/
+
+# Python-кэш
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE/редакторы
+.vscode/
+.idea/
+
+# Системный мусор
+.DS_Store
+Thumbs.db
+desktop.ini
